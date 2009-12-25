@@ -21,6 +21,7 @@
 	cnoremap ` <C-r>"
 	nnoremap , :cp<RETURN>
 	nnoremap . :cn<RETURN>
+	nnoremap ; :BufExplorer<RETURN>
 
 	" Insert and command-line mode Caps Lock.
 	" Lock search keymap to be the same as insert mode
