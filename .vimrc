@@ -286,7 +286,7 @@ if has("gui_running")
 		map <F12> <ESC>:set guifont=Consolas:h20<CR>
 	" }
 else
-	" colorscheme rdark
-	colorscheme dante
+	colorscheme rdark
+	" colorscheme dante
 endif
 " }
