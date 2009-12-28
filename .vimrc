@@ -35,6 +35,12 @@
 	" Cursor color change when capslock in on
 	:highlight Cursor guifg=NONE guibg=Green
 	:highlight lCursor guifg=NONE guibg=Cyan
+
+	func SearchWord()
+		let w = expand("<cword>")
+		exe "grep " w
+	endfun
+	map <F8> :call SearchWord()<CR>
 " }
 
 " 256 Color {
