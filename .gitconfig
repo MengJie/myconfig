@@ -1,0 +1,19 @@
+[user]
+    name = Meng Jie
+    email = inmouse@gmail.com
+[merge]
+    tool = vimdiff
+[alias]
+    st = status
+    di = diff
+    ci = commit -v
+    co = checkout
+    lg = log -20 --oneline
+    br = branch
+    sb = show-branch --all
+[color]
+    diff = auto
+    branch = auto
+    status = auto
+    show-branch = auto
+
