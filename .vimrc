@@ -21,7 +21,8 @@
 	cnoremap ` <C-r>"
 	nnoremap , :cp<RETURN>
 	nnoremap . :cn<RETURN>
-	nnoremap ; :BufExplorer<RETURN>
+	" nnoremap ; :BufExplorer<RETURN>
+	nnoremap ; :FufBuffer<CR>
 	nnoremap <C-n> :bn<RETURN>
 	nnoremap <C-p> :bp<RETURN>
 	inoremap jj <ESC>
