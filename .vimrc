@@ -12,11 +12,10 @@
 " Add by Jie {
 	set makeprg=gmake "use gmake
 	set grepprg=~/sl.sh "use grep
-	" if filereadable("./fntags")
-		let g:LookupFile_TagExpr=string('./fntags')
-	" endif
+
 	set encoding=cp936
 	set tenc=utf-8
+	au BufWritePre *.cpp,*.hpp,*.c,*.h,*.lua,*.py set fenc=cp936
 
 	cnoremap ` <C-r>"
 	nnoremap , :cp<RETURN>
