@@ -147,9 +147,15 @@ bind ^] paste [.]
 # default windows
 #
 
-# screen -t local 0
-# screen -t mail 1 mutt
-# screen -t 40 2 rlogin server
+screen -t Bash 0
+screen -t Run 1
+screen -t Test 2
+screen -t Vim 3
+screen -t Vim-Test 4
+screen -t Git 5
+screen -t Git-Common 6
+screen -t Git-XLS 7
+screen -t Log 8
 
 # caption always "%3n %t%? @%u%?%? [%h]%?%=%c"
 # hardstatus alwaysignore
