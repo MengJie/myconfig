@@ -1,3 +1,13 @@
 # main()
 snippet deb
 	print('-------- mengjie debug ${1}')${2}
+snippet foriv
+	for ${1:i}, ${2:v} in ipairs(${3}) do
+		${4}
+	end${5}
+snippet forkv
+	for ${1:k}, ${2:v} in pairs(${3}) do
+		${4}
+	end${5}
+snippet dlog
+	Log:Debug("${1}", ${2})${3}
