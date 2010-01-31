@@ -17,6 +17,8 @@ hardstatus alwayslastline "%{= kW} %-= %{= kB}Host:%{= kW} $USER%{= kY}@%{= kW}%
 # detach on hangup
 autodetach on
 
+multiuser on
+
 # don't display the copyright page
 startup_message off
 
