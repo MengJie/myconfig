@@ -50,6 +50,29 @@
 		syntax on
 	endfun
 	map <F9> :call ReloadAllFiles()<CR>
+
+	" transfer/read and write one block of text between vim sessions
+	" " Usage:
+	" " 'from' session:
+	" " ma
+	" " move to end-of-block
+	" " xw
+	" "
+	" " 'to' session:
+	" " move to where I want block inserted
+	" " xr
+	" "
+	if has("unix")
+		nmap <leader>r :r $HOME/.vimxfer<CR>
+		nmap <leader>w :'a,.w! $HOME/.vimxfer<CR>
+		vmap <leader>r c<Esc>:r $HOME/.vimxfer<CR>
+		vmap <leader>w :w! $HOME/.vimxfer<CR>
+	else
+		nmap <leader>r :r c:/.vimxfer<CR>
+		nmap <leader>w :'a,.w! c:/.vimxfer<CR>
+		vmap <leader>r c<Esc>:r c:/.vimxfer<CR>
+		vmap <leader>w :w! c:/.vimxfer<CR>
+	endif
 " }
 
 " 256 Color {
