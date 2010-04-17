@@ -299,8 +299,9 @@ endif
 	" }
 	au BufNewFile,BufRead *.ahk setf ahk
 	au BufNewFile,BufRead *.pto setf xml
-	au BufWritePre *.cpp,*.hpp,*.c,*.h,*.lua,*.py %s/\s\+$//ge
-	au BufWritePre *.cpp,*.hpp,*.c,*.h,*.lua,*.py %retab!
+	au BufNewFile,BufRead *.go setf go
+	au BufWritePre *.cpp,*.hpp,*.c,*.h,*.lua,*.py,*.go %s/\s\+$//ge
+	au BufWritePre *.cpp,*.hpp,*.c,*.h,*.lua,*.py,*.go %retab!
 " }
 
 " GUI Settings {
