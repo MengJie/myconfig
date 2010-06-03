@@ -26,6 +26,7 @@
 	nnoremap ;f :FufFile<CR>
 	nnoremap ;j :FufJumpList<CR>
 	nnoremap ;q :FufQuickfix<CR>
+	nnoremap <C-]> :FufTagWithCursorWord<CR>
 	nnoremap <C-n> :bn<RETURN>
 	nnoremap <C-p> :bp<RETURN>
 	inoremap jj <ESC>
