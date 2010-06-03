@@ -13,6 +13,7 @@
 	set makeprg=gmake "use gmake
 	set grepprg=~/sl.sh "use grep
 
+	set fencs=cp936,utf-8
 	set encoding=cp936
 	set tenc=utf-8
 	au BufWritePre *.cpp,*.hpp,*.c,*.h,*.lua,*.py set fenc=cp936
@@ -21,7 +22,10 @@
 	nnoremap , :cp<RETURN>
 	nnoremap . :cn<RETURN>
 	" nnoremap ; :BufExplorer<RETURN>
-	nnoremap ; :FufBuffer<CR>
+	nnoremap ;; :FufBuffer<CR>
+	nnoremap ;f :FufFile<CR>
+	nnoremap ;j :FufJumpList<CR>
+	nnoremap ;q :FufQuickfix<CR>
 	nnoremap <C-n> :bn<RETURN>
 	nnoremap <C-p> :bp<RETURN>
 	inoremap jj <ESC>
@@ -128,7 +132,7 @@ endif
 	set fileformats=unix,dos,mac " support all three, in this order
 	set hidden " you can change buffers without saving
 	" (XXX: #VIM/tpope warns the line below could break things)
-	set iskeyword+=_,$,@,%,# " none of these are word dividers
+	set iskeyword+=_,$,@,% " none of these are word dividers
 	" set mouse=a " use mouse everywhere
 	set noerrorbells " don't make noise
 	set whichwrap=b,s,h,l,<,>,~,[,] " everything wraps
@@ -299,8 +303,9 @@ endif
 	" }
 	au BufNewFile,BufRead *.ahk setf ahk
 	au BufNewFile,BufRead *.pto setf xml
-	au BufWritePre *.cpp,*.hpp,*.c,*.h,*.lua,*.py %s/\s\+$//ge
-	au BufWritePre *.cpp,*.hpp,*.c,*.h,*.lua,*.py %retab!
+	au BufNewFile,BufRead *.go setf go
+	au BufWritePre *.cpp,*.hpp,*.c,*.h,*.lua,*.py,*.go %s/\s\+$//ge
+	au BufWritePre *.cpp,*.hpp,*.c,*.h,*.lua,*.py,*.go %retab!
 " }
 
 " GUI Settings {

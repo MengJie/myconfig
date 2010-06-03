@@ -35,7 +35,7 @@ endfunction
 
 "
 function fuf#file#onInit()
-  call fuf#defineLaunchCommand('FufFile'                    , s:MODE_NAME, '""')
+  call fuf#defineLaunchCommand('FufFile'                    , s:MODE_NAME, '"**/"')
   call fuf#defineLaunchCommand('FufFileWithFullCwd'         , s:MODE_NAME, 'fnamemodify(getcwd(), '':p'')')
   call fuf#defineLaunchCommand('FufFileWithCurrentBufferDir', s:MODE_NAME, 'expand(''%:~:.'')[:-1-len(expand(''%:~:.:t''))]')
 endfunction

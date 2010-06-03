@@ -16,4 +16,6 @@
     branch = auto
     status = auto
     show-branch = auto
-
+[i18n]
+	commitEncoding = GBK
+	logOutputEncoding = UTF-8
