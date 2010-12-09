@@ -20,27 +20,33 @@
 	set fencs=cp936,utf-8
 	set encoding=cp936
 	set tenc=utf-8
+
 	au BufWritePre *.cpp,*.hpp,*.c,*.h,*.lua,*.py set fenc=cp936
 	au BufReadPre hg-editor*.txt set enc=utf-8
 
+	let mapleader = ","
+
+	nnoremap ; :
+
 	cnoremap ` <C-r>"
-	nnoremap , :cp<RETURN>
-	nnoremap . :cn<RETURN>
-	" nnoremap ; :BufExplorer<RETURN>
-	nnoremap ;; :FufBuffer<CR>
-	nnoremap ;f :FufCoverageFile<CR>
-	nnoremap ;j :FufJumpList<CR>
-	nnoremap ;q :FufQuickfix<CR>
-	nnoremap ;d :FufDir<CR>
-	nnoremap ;c :FufDirWithCurrentBufferDir<CR>
+
+	nnoremap <C-k> :cp<RETURN>
+	nnoremap <C-j> :cn<RETURN>
+	noremap <C-h> :tabprevious<CR>
+	noremap <C-l> :tabnext<CR>
+
+	nnoremap <leader>b :FufBuffer<CR>
+	nnoremap <leader>f :FufCoverageFile<CR>
+	nnoremap <leader>j :FufJumpList<CR>
+	nnoremap <leader>q :FufQuickfix<CR>
+	nnoremap <leader>d :FufDir<CR>
+	nnoremap <leader>c :FufDirWithCurrentBufferDir<CR>
 	nnoremap <C-]> :FufTagWithCursorWord<CR>
-	nnoremap <C-n> :bn<RETURN>
-	nnoremap <C-p> :bp<RETURN>
+
 	inoremap jj <ESC>
 	inoremap kk <ESC>
 
     let g:yankring_map_dot = 0
-
 
 	" Insert and command-line mode Caps Lock.
 	" Lock search keymap to be the same as insert mode
@@ -402,7 +408,8 @@ if has("gui_running")
 		" map <F12> <ESC>:set guifont=Consolas:h20<CR>
 	" }
 else
-	colorscheme rdark
+	colorscheme molokai
+	" colorscheme rdark
 	" colorscheme dante
 endif
 " }
