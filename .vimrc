@@ -40,18 +40,20 @@
 	inoremap kk <ESC>
 
     let g:yankring_map_dot = 0
+
+
 	" Insert and command-line mode Caps Lock.
 	" Lock search keymap to be the same as insert mode
-	set imsearch=-1
+	" set imsearch=-1
 	" Load the keymap that acts like capslock
-	set keymap=insert-only_capslock
+	" set keymap=insert-only_capslock
 	" Turn it off by default
-	set iminsert=0
+	" set iminsert=0
 	" Kill the capslock when leaving insert mode
-	autocmd InsertLeave * set iminsert=0
+	" autocmd InsertLeave * set iminsert=0
 	" Cursor color change when capslock in on
-	:highlight Cursor guifg=NONE guibg=Green
-	:highlight lCursor guifg=NONE guibg=Cyan
+	":highlight Cursor guifg=NONE guibg=Green
+	":highlight lCursor guifg=NONE guibg=Cyan
 
 	func SearchWord()
 		let w = expand("<cword>")
