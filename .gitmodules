@@ -19,3 +19,6 @@
 [submodule ".vim/bundle/color-pack"]
 	path = .vim/bundle/color-pack
 	url = https://github.com/vim-scripts/Color-Sampler-Pack.git
+[submodule ".vim/bundle/csapprox"]
+	path = .vim/bundle/csapprox
+	url = https://github.com/godlygeek/csapprox.git
