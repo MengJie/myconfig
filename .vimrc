@@ -10,6 +10,10 @@
 " }
 
 " Add by Jie {
+
+	call pathogen#runtime_append_all_bundles()
+	call pathogen#helptags()
+
 	set makeprg=gmake "use gmake
 	set grepprg=~/sl.sh "use grep
 
