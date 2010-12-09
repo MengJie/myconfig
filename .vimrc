@@ -27,6 +27,8 @@
 	nnoremap ;f :FufFile<CR>
 	nnoremap ;j :FufJumpList<CR>
 	nnoremap ;q :FufQuickfix<CR>
+	nnoremap ;d :FufDir<CR>
+	nnoremap ;c :FufDirWithCurrentBufferDir<CR>
 	nnoremap <C-]> :FufTagWithCursorWord<CR>
 	nnoremap <C-n> :bn<RETURN>
 	nnoremap <C-p> :bp<RETURN>
@@ -57,6 +59,7 @@
 		syntax on
 	endfun
 	map <F9> :call ReloadAllFiles()<CR>
+	map <F10> :call ReloadAllSnippets()<CR>
 
 	" transfer/read and write one block of text between vim sessions
 	" " Usage:
@@ -370,13 +373,18 @@ endif
 if has("gui_running")
 	" Basics {
 		colorscheme darkblue " my color scheme (only works in GUI)
-		set columns=180 " perfect size for me
-		set guifont=Consolas:h10 " My favorite font
+		set columns=80 " perfect size for me
+		set lines=35 " perfect size for me
+		set guifont=Monospace\ 12 " My favorite font
+
+		" set columns=180 " perfect size for me
+		" set lines=55 " perfect size for me
+		" set guifont=Consolas:h10 " My favorite font
+
 		set guioptions=ce 
 		"			   ||
 		"			   |+-- use simple dialogs rather than pop-ups
 		"			   +  use GUI tabs, not console style tabs
-		set lines=55 " perfect size for me
 		set mousehide " hide the mouse cursor when typing
 	" }
 
