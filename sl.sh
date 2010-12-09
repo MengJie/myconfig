@@ -1,4 +1,5 @@
-grep -e $1 -nwR --color \
+echo search ... $1
+grep -e "$1" -nR --color \
 	--exclude="*\.svn*" \
 	--exclude="*autocode*" \
 	--include="*.lua" \
@@ -9,4 +10,5 @@ grep -e $1 -nwR --color \
 	--include "*.pto" \
 	--include "*.py" \
 	--include "*.go" \
+	--include "*.task" \
 	*

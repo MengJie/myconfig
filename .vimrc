@@ -17,6 +17,7 @@
 	set encoding=cp936
 	set tenc=utf-8
 	au BufWritePre *.cpp,*.hpp,*.c,*.h,*.lua,*.py set fenc=cp936
+	au BufReadPre hg-editor*.txt set enc=utf-8
 
 	cnoremap ` <C-r>"
 	nnoremap , :cp<RETURN>
@@ -32,6 +33,7 @@
 	inoremap jj <ESC>
 	inoremap kk <ESC>
 
+    let g:yankring_map_dot = 0
 	" Insert and command-line mode Caps Lock.
 	" Lock search keymap to be the same as insert mode
 	set imsearch=-1
@@ -78,6 +80,61 @@
 		vmap <leader>r c<Esc>:r c:/.vimxfer<CR>
 		vmap <leader>w :w! c:/.vimxfer<CR>
 	endif
+
+	function! s:ChangeVarName(varname)
+		let s:specials = {}
+
+		let s:specials['.*ToString()'] = ''
+		let s:specials['UId'] = 'UserId'
+
+		let s:rt = a:varname
+		for pattern in keys(s:specials)
+			if match(s:rt, pattern) != -1
+				let s:rt = s:specials[pattern]
+			endif
+		endfor
+		let s:rt = substitute(s:rt, ":Get", "", "")
+		let s:rt = substitute(s:rt, "Obj", "", "")
+		let s:rt = substitute(s:rt, "()", "", "")
+		let s:rt = substitute(s:rt, "self\\.", "", "")
+		let s:rt = substitute(s:rt, "self", "", "")
+		let s:rt = substitute(s:rt, "\\.", "", "")
+		let s:rt = substitute(s:rt, "id", "Id", "")
+		let s:rt = substitute(s:rt, "amount", "Amount", "")
+		return s:rt
+	endfunction
+
+	function! AddLog()
+		let s:formats = {}
+
+		let s:formats['.*ToString()'] = '%s'
+		let s:formats['.*Name'] = '=%s'
+		let s:formats['.*Message'] = '=%s'
+		let s:formats['vfd'] = '=%d'
+		let s:formats['.*Id'] = '=%d'
+		let s:formats['.*'] = '=%d'
+
+		normal mb0f(f.lv$hh"ay
+		let s:params = @a
+		let s:words = split(s:params, ", *")
+		let @b = s:words[0] . ' = '
+		let s:words[0] = tr(s:words[0], "_0", " %")
+		for i in range(1, len(s:words)-1)
+			for pattern in keys(s:formats)
+				if match(s:words[i], pattern) != -1
+					let s:format = s:formats[pattern]
+				endif
+			endfor
+			let s:words[i] = s:ChangeVarName(s:words[i]) . s:format
+		endfor
+		let @a = '"' . join(s:words, ",") . '",'
+
+		normal `aO
+		normal "bp"ap`b
+
+	endfunction
+
+	nmap ## :call AddLog()<CR>
 " }
 
 " 256 Color {

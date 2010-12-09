@@ -6,16 +6,19 @@
 [alias]
     st = status
     di = diff
+	dic = diff --cached
     ci = commit -v
     co = checkout
     lg = log -20 --oneline
     br = branch
     sb = show-branch --all
+	sci = svn dcommit
+	sup = svn rebase
 [color]
     diff = auto
     branch = auto
     status = auto
     show-branch = auto
 [i18n]
-	commitEncoding = GBK
+	commitEncoding = UTF-8
 	logOutputEncoding = UTF-8
