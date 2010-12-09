@@ -28,7 +28,7 @@
 	nnoremap . :cn<RETURN>
 	" nnoremap ; :BufExplorer<RETURN>
 	nnoremap ;; :FufBuffer<CR>
-	nnoremap ;f :FufFile<CR>
+	nnoremap ;f :FufCoverageFile<CR>
 	nnoremap ;j :FufJumpList<CR>
 	nnoremap ;q :FufQuickfix<CR>
 	nnoremap ;d :FufDir<CR>

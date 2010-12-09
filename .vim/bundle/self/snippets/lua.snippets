@@ -1,0 +1,76 @@
+# main()
+snippet deb
+	print('-------- mengjie debug ${1}')${2}
+snippet foriv
+	for ${1:i}, ${2:v} in ipairs(${3}) do
+		${4}
+	end${5}
+snippet forkv
+	for ${1:k}, ${2:v} in pairs(${3}) do
+		${4}
+	end${5}
+snippet dlog
+	Log:Debug(LOGID.${1})
+snippet wlog
+	Log:Warn(LOGID.${1})
+snippet ilog
+	Log:Info(LOGID.${1})
+snippet dslog
+	SummonLog:Debug(LOGID.${1})
+snippet wslog
+	SummonLog:Warn(LOGID.${1})
+snippet islog
+	SummonLog:Info(LOGID.${1})
+snippet fun
+	function ${1}(${2})
+		${3}
+	end${5}
+snippet lfun
+	local function ${1}(${2})
+		${3}
+	end${5}
+snippet cfun
+	function cls${1:class}:${2:method}(${3:param})
+		${4:--code}
+	end
+snippet event
+	function Event${1:eventname}(User, ${2:param})
+		local Event = {
+			Type = "${3}",
+			Args = {
+				${4}
+			}
+		}
+		_ProcessEvent(User, Event)
+	end
+snippet step
+	-- ${1:Temp}Step
+	cls$1Step = cls${2:Task}Step:Inherit()
+
+	function cls$1Step:Create(Task, Data)
+		Super(cls$1Step).Create(self, Task, Data)
+		self.${3:val} = Data.$3
+	end
+
+	function cls$1Step:Save()
+		local Data = Super(cls$1Step).Save(self)
+		Data.$3 = self.$3
+		return Data
+	end
+
+	function cls$1Step:ProcessEvent(Event)
+		${4}
+	end
+	${5}
+snippet format
+	local ${1:Name}Format = {
+	    [DESC_FORMAT] = function(${2:Param})
+	        return ${3}
+	    end,
+	    [CHAT_FORMAT] = function($2)
+	        return ${4}
+	    end,
+	}
+snippet attr
+	self.${1:attr} = Data.$1
+	Data.$1 = self.$1
