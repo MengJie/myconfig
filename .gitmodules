@@ -16,3 +16,6 @@
 [submodule ".vim/bundle/taglist"]
 	path = .vim/bundle/taglist
 	url = https://github.com/vim-scripts/taglist.vim.git
+[submodule ".vim/bundle/color-pack"]
+	path = .vim/bundle/color-pack
+	url = https://github.com/vim-scripts/Color-Sampler-Pack.git
