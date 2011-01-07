@@ -15,11 +15,14 @@
 	call pathogen#helptags()
 
 	set makeprg=gmake "use gmake
-	set grepprg=~/sl.sh "use grep
+	" set grepprg=~/sl.sh "use grep
+	set grepprg=internal
 
-	set fencs=cp936,utf-8
+	se fencs=cp936,utf-8
 	set encoding=cp936
 	set tenc=utf-8
+
+	set pastetoggle=<leader>p
 
 	au BufWritePre *.cpp,*.hpp,*.c,*.h,*.lua,*.py set fenc=cp936
 	au BufReadPre hg-editor*.txt set enc=utf-8
@@ -61,17 +64,20 @@
 	":highlight Cursor guifg=NONE guibg=Green
 	":highlight lCursor guifg=NONE guibg=Cyan
 
-	func SearchWord()
+	func! SearchWord()
 		let w = expand("<cword>")
-		exe "grep " w
+		exe "grep /" . w . "/ **/*.lua"
 	endfun
 	map <F8> :call SearchWord()<CR><CR>
-	func ReloadAllFiles()
+	func! ReloadAllFiles()
 		bufdo e
 		syntax on
 	endfun
 	map <F9> :call ReloadAllFiles()<CR>
 	map <F10> :call ReloadAllSnippets()<CR>
+
+	map <leader>sv :so $MYVIMRC<CR>
+	map <leader>ev :e $MYVIMRC<CR>
 
 	" transfer/read and write one block of text between vim sessions
 	" " Usage:
@@ -275,7 +281,7 @@ endif
 	set noexpandtab " use real tabs please!
 	set formatoptions=rq " Automatically insert comment leader on return,
 						  " and let gq format comments
-	set ignorecase " case insensitive by default
+	" set ignorecase " case insensitive by default
 	set infercase " case inferred by default
 	set nowrap " do not wrap line
 	set shiftround " when at 3 spaces, and I hit > ... go to 4, not 5
@@ -408,8 +414,8 @@ if has("gui_running")
 		" map <F12> <ESC>:set guifont=Consolas:h20<CR>
 	" }
 else
-	colorscheme molokai
-	" colorscheme rdark
+	" colorscheme molokai
+	colorscheme myrdark
 	" colorscheme dante
 endif
 " }
