@@ -149,15 +149,21 @@ bind ^] paste [.]
 # default windows
 #
 
-screen -t Bash 0
-screen -t Run 1
-screen -t Test 2
-screen -t Vim 3
-screen -t Vim-Test 4
-screen -t Git 5
-screen -t Git-Common 6
-screen -t Git-XLS 7
-screen -t Log 8
+screen -t bash 0
+screen -t run 1
+screen -t test 2
+screen -t vim 3
+screen -t vimtest 4
+screen -t hjxy 5
+screen -t common 6
+screen -t xls 7
+screen -t log 8
+screen -t db 9
+screen -t web 10
+screen -t nhjxy 11
+screen -t ncommon 12
+screen -t nxls 13
+screen -t ndb 14
 
 # caption always "%3n %t%? @%u%?%? [%h]%?%=%c"
 # hardstatus alwaysignore

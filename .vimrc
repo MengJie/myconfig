@@ -14,7 +14,7 @@
 	call pathogen#runtime_append_all_bundles()
 	call pathogen#helptags()
 
-	set makeprg=gmake "use gmake
+	set makeprg=scons "use gmake
 	" set grepprg=~/sl.sh "use grep
 	set grepprg=internal
 
@@ -22,12 +22,13 @@
 	set encoding=cp936
 	set tenc=utf-8
 
-	set pastetoggle=<leader>p
 
 	au BufWritePre *.cpp,*.hpp,*.c,*.h,*.lua,*.py set fenc=cp936
 	au BufReadPre hg-editor*.txt set enc=utf-8
 
 	let mapleader = ","
+
+	set pastetoggle=<leader>p
 
 	nnoremap ; :
 
@@ -66,7 +67,7 @@
 
 	func! SearchWord()
 		let w = expand("<cword>")
-		exe "grep /" . w . "/ **/*.lua"
+		exe "grep /" . w . "/ **/*.[ch] **/*.[ch]pp **/*.lua **/*.pto"
 	endfun
 	map <F8> :call SearchWord()<CR><CR>
 	func! ReloadAllFiles()

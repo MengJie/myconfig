@@ -40,7 +40,7 @@ hi IncSearch guibg=#2e3436 guifg=#fcaf3e
 hi StatusLine guifg=#2e3436 guibg=#babdb6 gui=none
 hi StatusLineNC guifg=#2e3436 guibg=#888a85 gui=none
 hi VertSplit guifg=#555753 guibg=#888a85 gui=none
-hi Visual guibg=#333333
+hi Visual guibg=#333377
 hi MoreMsg guifg=#729fcf
 hi Question guifg=#8ae234 gui=none
 hi WildMenu guifg=#eeeeec guibg=#0e1416
@@ -80,7 +80,7 @@ hi MatchParen guifg=#2e3436 guibg=#fcaf3e
 hi Directory guifg=#ffffff
 
 " Syntax
-hi Comment guifg=#656763
+hi Comment guifg=#337777
 hi Constant guifg=#8ae234
 hi Number guifg=#8ae234
 hi Statement guifg=#729fcf gui=none
