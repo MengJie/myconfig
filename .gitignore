@@ -3,4 +3,5 @@
 /.vim/view
 /.vim/backup
 /.vim/tmp
+/.vim/.netrwhist
 

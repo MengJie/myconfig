@@ -18,12 +18,12 @@
 	" set grepprg=~/sl.sh "use grep
 	set grepprg=internal
 
-	se fencs=cp936,utf-8
-	set encoding=cp936
+	se fencs=utf-8,cp936
+	set encoding=utf-8
 	set tenc=utf-8
 
 
-	au BufWritePre *.cpp,*.hpp,*.c,*.h,*.lua,*.py set fenc=cp936
+	au BufWritePre *.cpp,*.hpp,*.c,*.h,*.lua,*.py,*.sh set fenc=utf-8
 	au BufReadPre hg-editor*.txt set enc=utf-8
 
 	let mapleader = ","
@@ -39,13 +39,19 @@
 	noremap <C-h> :tabprevious<CR>
 	noremap <C-l> :tabnext<CR>
 
-	nnoremap <leader>b :FufBuffer<CR>
+	let g:fuf_modesDisable = ['mrucmd']
+	let g:fuf_mrufile_maxItem = 400
+
+	nnoremap <leader>b :FufMruFile<CR>
 	nnoremap <leader>f :FufCoverageFile<CR>
 	nnoremap <leader>j :FufJumpList<CR>
 	nnoremap <leader>q :FufQuickfix<CR>
 	nnoremap <leader>d :FufDir<CR>
 	nnoremap <leader>c :FufDirWithCurrentBufferDir<CR>
-	nnoremap <C-]> :FufTagWithCursorWord<CR>
+	nnoremap <leader>r :GundoToggle<CR>
+	nnoremap <leader>t :NERDTreeToggle<RETURN>
+	nnoremap <leader>g :Tlist<RETURN>
+	" nnoremap <C-]> :FufTagWithCursorWord<CR>
 
 	inoremap jj <ESC>
 	inoremap kk <ESC>
@@ -91,17 +97,17 @@
 	" " move to where I want block inserted
 	" " xr
 	" "
-	if has("unix")
-		nmap <leader>r :r $HOME/.vimxfer<CR>
-		nmap <leader>w :'a,.w! $HOME/.vimxfer<CR>
-		vmap <leader>r c<Esc>:r $HOME/.vimxfer<CR>
-		vmap <leader>w :w! $HOME/.vimxfer<CR>
-	else
-		nmap <leader>r :r c:/.vimxfer<CR>
-		nmap <leader>w :'a,.w! c:/.vimxfer<CR>
-		vmap <leader>r c<Esc>:r c:/.vimxfer<CR>
-		vmap <leader>w :w! c:/.vimxfer<CR>
-	endif
+	"if has("unix")
+	"	nmap <leader>r :r $HOME/.vimxfer<CR>
+	"	nmap <leader>w :'a,.w! $HOME/.vimxfer<CR>
+	"	vmap <leader>r c<Esc>:r $HOME/.vimxfer<CR>
+	"	vmap <leader>w :w! $HOME/.vimxfer<CR>
+	"else
+	"	nmap <leader>r :r c:/.vimxfer<CR>
+	"	nmap <leader>w :'a,.w! c:/.vimxfer<CR>
+	"	vmap <leader>r c<Esc>:r c:/.vimxfer<CR>
+	"	vmap <leader>w :w! c:/.vimxfer<CR>
+	"endif
 
 	function! s:ChangeVarName(varname)
 		let s:specials = {}
@@ -205,10 +211,11 @@ endif
 	filetype plugin indent on " load filetype plugins/indent settings
 	" set autochdir " always switch to the current file directory
 	set backspace=indent,eol,start " make backspace a more flexible
-	set backup " make backup files
-	set backupdir=~/.vim/backup " where to put backup files
+	set nobackup " make backup files
+	" set backupdir=~/.vim/backup " where to put backup files
 	set clipboard+=unnamed " share windows clipboard
-	set directory=~/.vim/tmp " directory to place swap files in
+	set noswapfile
+	" set directory=~/.vim/tmp " directory to place swap files in
 	set fileformats=unix,dos,mac " support all three, in this order
 	set hidden " you can change buffers without saving
 	" (XXX: #VIM/tpope warns the line below could break things)
@@ -352,8 +359,6 @@ endif
 
 	" Make Arrow Keys Useful Again {
 		" map <s-down> <ESC>:bn<RETURN>
-		map <F6> <ESC>:NERDTreeToggle<RETURN>
-		map <F7> <ESC>:Tlist<RETURN>
 		" map <s-up> <ESC>:bp<RETURN>
 	" }
 " }
