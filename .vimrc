@@ -22,8 +22,9 @@
 	set encoding=utf-8
 	set tenc=utf-8
 
+	set updatetime=200
 
-	au BufWritePre *.cpp,*.hpp,*.c,*.h,*.lua,*.py,*.sh set fenc=utf-8
+	" au BufWritePre *.cpp,*.hpp,*.c,*.h,*.lua,*.py,*.sh set fenc=utf-8
 	au BufReadPre hg-editor*.txt set enc=utf-8
 
 	let mapleader = ","
@@ -44,13 +45,10 @@
 
 	nnoremap <leader>b :FufMruFile<CR>
 	nnoremap <leader>f :FufCoverageFile<CR>
-	nnoremap <leader>j :FufJumpList<CR>
-	nnoremap <leader>q :FufQuickfix<CR>
-	nnoremap <leader>d :FufDir<CR>
-	nnoremap <leader>c :FufDirWithCurrentBufferDir<CR>
 	nnoremap <leader>r :GundoToggle<CR>
 	nnoremap <leader>t :NERDTreeToggle<RETURN>
-	nnoremap <leader>g :Tlist<RETURN>
+	nnoremap <leader>g :TagbarToggle<RETURN>
+	nnoremap <leader>c :exec "%s/".expand("<cword>")."//gn"<CR>
 	" nnoremap <C-]> :FufTagWithCursorWord<CR>
 
 	inoremap jj <ESC>
@@ -389,6 +387,7 @@ endif
 	au BufNewFile,BufRead *.ahk setf ahk
 	au BufNewFile,BufRead *.pto setf xml
 	au BufNewFile,BufRead *.go setf go
+	au BufNewFile,BufRead *.tmpl setf mako
 	au BufWritePre *.cpp,*.hpp,*.c,*.h,*.lua,*.py,*.go %s/\s\+$//ge
 	au BufWritePre *.cpp,*.hpp,*.c,*.h,*.lua,*.py,*.go %retab!
 " }
@@ -405,7 +404,7 @@ if has("gui_running")
 		" set lines=55 " perfect size for me
 		" set guifont=Consolas:h10 " My favorite font
 
-		set guioptions=ce 
+		set guioptions=ce
 		"			   ||
 		"			   |+-- use simple dialogs rather than pop-ups
 		"			   +  use GUI tabs, not console style tabs

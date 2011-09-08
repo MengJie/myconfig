@@ -13,9 +13,6 @@
 [submodule ".vim/bundle/yankring"]
 	path = .vim/bundle/yankring
 	url = https://github.com/chrismetcalf/vim-yankring.git
-[submodule ".vim/bundle/taglist"]
-	path = .vim/bundle/taglist
-	url = https://github.com/vim-scripts/taglist.vim.git
 [submodule ".vim/bundle/color-pack"]
 	path = .vim/bundle/color-pack
 	url = https://github.com/vim-scripts/Color-Sampler-Pack.git
@@ -34,3 +31,6 @@
 [submodule ".vim/bundle/nrrwrgn"]
 	path = .vim/bundle/nrrwrgn
 	url = https://github.com/chrisbra/NrrwRgn.git
+[submodule ".vim/bundle/tagbar"]
+	path = .vim/bundle/tagbar
+	url = https://github.com/majutsushi/tagbar.git

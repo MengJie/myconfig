@@ -1,4 +1,14 @@
 # main()
+snippet temp
+	local ${1:i}Buf = self:GetFightValue("$1Buf", 0)
+	if ModValue < 0 and $1Buf > 0 then
+		local NewVal = $1Buf + ModValue
+		if NewVal <= 0 then
+			NewVal = 0
+			PERFORM.RemoveStatus(self, mFST_BUF_${2})
+		end
+		self:SetFightValue("$1Buf", NewVal)
+	end
 snippet deb
 	print('-------- mengjie debug ${1}')${2}
 snippet foriv
