@@ -17,3 +17,6 @@ ln -s $REPOPATH/.screenrc ~/.screenrc
 rm -rf ~/.gitconfig
 ln -s $REPOPATH/.gitconfig ~/.gitconfig
 
+rm -rf ~/.tmux.conf
+ln -s $REPOPATH/.tmux.conf ~/.tmux.conf
+
