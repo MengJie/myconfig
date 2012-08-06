@@ -16,13 +16,15 @@
 
 	set makeprg=scons "use gmake
 	" set grepprg=~/sl.sh "use grep
-	set grepprg=internal
+	" set grepprg=internal
+	set grepprg=grep\ -rn\ --include=$*\ .
 
 	se fencs=utf-8,cp936
 	set encoding=utf-8
 	set tenc=utf-8
 
 	set updatetime=200
+	set timeoutlen=300
 
 	" au BufWritePre *.cpp,*.hpp,*.c,*.h,*.lua,*.py,*.sh set fenc=utf-8
 	au BufReadPre hg-editor*.txt set enc=utf-8
@@ -71,7 +73,7 @@
 
 	func! SearchWord()
 		let w = expand("<cword>")
-		exe "grep /" . w . "/ **/*.[ch] **/*.[ch]pp **/*.lua **/*.pto"
+		exe "grep *.{lua,[ch],[ch]pp,pto} \"" . w . "\""
 	endfun
 	map <F8> :call SearchWord()<CR><CR>
 	func! ReloadAllFiles()
