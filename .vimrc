@@ -24,7 +24,7 @@
 	set tenc=utf-8
 
 	set updatetime=200
-	set timeoutlen=300
+	set timeoutlen=500
 
 	" au BufWritePre *.cpp,*.hpp,*.c,*.h,*.lua,*.py,*.sh set fenc=utf-8
 	au BufReadPre hg-editor*.txt set enc=utf-8
@@ -162,7 +162,28 @@
 
 	endfunction
 
-	nmap ## :call AddLog()<CR>
+	function! ChangeLog()
+		let @c = "--"
+		normal! 0viw"syf:lviw"aywwwwviw"by^ok"cPj
+		if match(@a, "Info") != -1
+			let @d = @s . 'INF.' . @b . '()'
+		endif
+		if match(@a, "Debug") != -1
+			let @d = @s . 'DBG.' . @b . '()'
+		endif
+		if match(@a, "Warn") != -1
+			let @d = @s . 'WRN.' . @b . '()'
+		endif
+		if match(@a, "Error") != -1
+			let @d = @s . 'ERR.' . @b . '()'
+		endif
+		if match(@a, "Critical") != -1
+			let @d = @s . 'CRT.' . @b . '()'
+		endif
+		normal! 0"dP
+	endfunction
+
+	nmap ss :call ChangeLog()<CR>
 " }
 
 " 256 Color {
