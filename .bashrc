@@ -10,6 +10,7 @@ alias la='ls -Ga'
 alias ll='ls -lT'
 alias l="ls -lT"
 alias vi='vim'
+alias em='emacs'
 
 alias dev='cd /home/jie/dev-link'
 alias engine='cd /home/jie/dev-link/engine'
@@ -22,6 +23,11 @@ alias xls='cd /home/jie/dev-link/logic/xls'
 #export PS1="\$?-[\u]:\w>"
 export PS1="[\u \w] :-) "
 #set -o vi
+
+if [ -f $HOME/.termcap ]; then
+	TERMCAP=$(< $HOME/.termcap)
+	export TERMCAP
+fi
 
 export GOROOT=$HOME/go
 export GOROOT_FINAL=/usr/local/go
