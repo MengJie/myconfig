@@ -80,8 +80,10 @@
 		bufdo e
 		syntax on
 	endfun
-	map <F9> :call ReloadAllFiles()<CR>
-	map <F10> :call ReloadAllSnippets()<CR>
+
+	let g:UltiSnipsExpandTrigger="<tab>"
+	let g:UltiSnipsJumpForwardTrigger="<tab>"
+	let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 	map <leader>sv :so $MYVIMRC<CR>
 	map <leader>ev :e $MYVIMRC<CR>
@@ -288,7 +290,7 @@ endif
 	set showcmd " show the command being typed
 	set showmatch " show matching brackets
 	set sidescrolloff=10 " Keep 5 lines at the size
-	set statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]
+	set statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%3v,\ %l]%{fugitive#statusline()}
 	"			   | | | | |  |   |		 |	|	  |    |
 	"			   | | | | |  |   |		 |	|	  |    + current
 	"			   | | | | |  |   |		 |	|	  |		  column
