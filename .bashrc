@@ -2,13 +2,15 @@ EDITOR=vim;   	export EDITOR
 PAGER=less;  	export PAGER
 PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/games:/usr/local/sbin:/usr/local/bin:/usr/X11R6/bin:$HOME/bin:/home/jie/bin; export PATH
 
-LC_ALL=zh_CN.UTF-8;	export LC_ALL
+LC_ALL=en_US.UTF-8;	export LC_ALL
 #LANG="zh_CN.GBK";	export LANG
 TERM="xterm-256color"; export TERM
-alias ls='ls -G'
-alias la='ls -Ga'
-alias ll='ls -lT'
-alias l="ls -lT"
+alias ls='ls --color'
+#alias ls='ls -G'
+alias la='ls -a'
+alias ll='ls -lrt'
+#alias ll='ls -lT'
+alias l='ll'
 alias vi='vim'
 alias em='emacs'
 
@@ -29,13 +31,10 @@ if [ -f $HOME/.termcap ]; then
 	export TERMCAP
 fi
 
-export GOROOT=$HOME/go
-export GOROOT_FINAL=/usr/local/go
-export GOBIN=/usr/local/bin
-export GOOS=freebsd
-export GOARCH=386
-PATH=$GOBIN:$PATH; export PATH
-
-source /usr/local/etc/bash_completion
-source ~/.git-completion.bash
+#export GOROOT=$HOME/go
+#export GOROOT_FINAL=/usr/local/go
+#export GOBIN=/usr/local/bin
+#export GOOS=freebsd
+#export GOARCH=386
+#PATH=$GOBIN:$PATH; export PATH
 
