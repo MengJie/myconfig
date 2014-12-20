@@ -2,6 +2,9 @@ se fencs=utf-8,cp936,ucs-bom
 set encoding=utf-8
 set tenc=utf-8
 
+set grepprg=grep\ -rn\ --include=$*\ .
+" set makeprg=scons "use gmake
+
 set noswapfile
 set nobackup
 set nospell
@@ -11,6 +14,9 @@ inoremap jj <ESC>
 inoremap kk <ESC>
 
 nnoremap ; :
+nnoremap [q :cp<RETURN>
+nnoremap ]q :cn<RETURN>
+nnoremap <Leader>ts :gr *.{c,cpp,lua} <C-R>=expand("<cword>")<CR>
 
 set listchars=tab:\ \ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespace
 
