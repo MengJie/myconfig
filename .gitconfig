@@ -6,21 +6,21 @@
 [alias]
     st = status
     di = diff
-	dic = diff --cached
+    dic = diff --cached
     ci = commit -v
     co = checkout
-	ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
-	ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
-	ld = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
+    ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+    ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+    ld = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
     br = branch
     sb = show-branch --all
-	sci = svn dcommit
-	sup = svn rebase
+    sci = svn dcommit
+    sup = svn rebase
 [color]
     diff = auto
     branch = auto
     status = auto
     show-branch = auto
 [i18n]
-	commitEncoding = UTF-8
-	logOutputEncoding = UTF-8
+    commitEncoding = UTF-8
+    logOutputEncoding = UTF-8
