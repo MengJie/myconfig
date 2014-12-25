@@ -8,15 +8,15 @@ set grepprg=grep\ -rn\ --include=$*\ .
 set noswapfile
 set nobackup
 set nospell
-set timeoutlen=250
+set timeoutlen=500
 
 inoremap jj <ESC>
 inoremap kk <ESC>
 
 nnoremap ; :
-nnoremap [q :cp<RETURN>
-nnoremap ]q :cn<RETURN>
-nnoremap <Leader>ts :gr *.{c,cpp,h,lua} <C-R>=expand("<cword>")<CR>
+nnoremap <C-K> :cp<RETURN>
+nnoremap <C-J> :cn<RETURN>
+nnoremap <Leader>ts :gr *.{c,cpp,h,lua} <C-R>=expand("<cword>")<CR><CR>
 nnoremap <Leader>nn :echo @%<RETURN>
 
 set listchars=tab:\ \ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespace
