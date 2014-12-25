@@ -16,7 +16,8 @@ inoremap kk <ESC>
 nnoremap ; :
 nnoremap [q :cp<RETURN>
 nnoremap ]q :cn<RETURN>
-nnoremap <Leader>ts :gr *.{c,cpp,lua} <C-R>=expand("<cword>")<CR>
+nnoremap <Leader>ts :gr *.{c,cpp,h,lua} <C-R>=expand("<cword>")<CR>
+nnoremap <Leader>nn :echo @%<RETURN>
 
 set listchars=tab:\ \ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespace
 
