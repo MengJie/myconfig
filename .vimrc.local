@@ -1,23 +1,52 @@
-se fencs=utf-8,cp936,ucs-bom
+scriptencoding utf-8
+
+set fencs=utf-8,cp936,ucs-bom
 set encoding=utf-8
 set tenc=utf-8
 
-set grepprg=grep\ -rn\ --include=$*\ .
+set grepprg=pt\ -S\ -G\ $*
 " set makeprg=scons "use gmake
 
 set noswapfile
 set nobackup
 set nospell
 set timeoutlen=500
+set nolist
+set nocursorline
+set lsp=3
 
 inoremap jj <ESC>
 inoremap kk <ESC>
 
 nnoremap ; :
-nnoremap <C-K> :cp<RETURN>
-nnoremap <C-J> :cn<RETURN>
+nnoremap <C-k> :cp<RETURN>
+nnoremap <C-j> :cn<RETURN>
 nnoremap <Leader>ts :gr *.{c,cpp,h,lua} <C-R>=expand("<cword>")<CR><CR>
 nnoremap <Leader>nn :echo @%<RETURN>
 
-set listchars=tab:\ \ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespace
+nnoremap <leader>q :FufQuickfix<CR>
+nnoremap <leader>d :FufDir<CR>
+nnoremap <leader>c :exec "%s/".expand("<cword>")."//gn"<CR>
+nnoremap <leader>t :NERDTreeToggle<CR>
+nnoremap <leader>g :TagbarToggle<CR>
+nnoremap <leader>r :GundoToggle<CR>
 
+" spacemacs style configuration
+nnoremap <leader>fs :w<CR>
+nnoremap <leader>pf :CtrlP<CR>
+nnoremap <leader>bb :CtrlPBuffer<CR>
+
+" set listchars=tab:\ \ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespace
+
+set guioptions-=l           " Remove the left scrollbar
+set guioptions-=L           " Remove the left scrollbar
+set guioptions-=R           " Remove the right scrollbar
+set guioptions-=r           " Remove the right scrollbar
+
+colorscheme monokai-chris
+language message zh_CN.utf-8
+
+let g:indent_guides_enable_on_vim_startup = 0
+let g:NERDTreeDirArrowExpandable = "▸"
+let g:NERDTreeDirArrowCollapsible = "▾"
+let g:AutoPairsFlyMode = 1

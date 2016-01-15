@@ -1,3 +1,9 @@
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+  \ 'file': '\v\.(exe|so|dll)$',
+  \ 'link': 'some_bad_symbolic_links',
+  \ }
 let g:spf13_no_autochdir = 1
 let g:spf13_no_views = 1
-
+let g:spf13_leader=' '
+let g:airline_theme = 'molokai'
